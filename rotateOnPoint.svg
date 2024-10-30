@@ -1,0 +1,25 @@
+<svg viewBox='-600 -600 1200 1200' xmlns='http://www.w3.org/2000/svg' fill='white' stroke='blue'>
+<text x='-50' y='-530' font-size='16' fill='black'>
+I love SVG
+<animate attributeName='font-size' from='16' to='30' dur='5s' repeatCount='indefinite' />
+<animate attributeName='fill' values='black; red; blue; green; black' dur='5s' repeatCount='indefinite' />
+</text>
+<text x='-500' y='0' stroke='blue' >(-500, 0) </text>
+<text x='500' y='0' stroke='blue' >(500, 0) </text>
+<text x='0' y='500' stroke='blue' >(0, 500) </text>
+<text x='0' y='-500' stroke='blue' >(0, -500) </text>
+<line x1='0' y1='-500' x2='0' y2='500' stroke='red' stroke-width='2' />
+<line x1='-500' y1='0' x2='500' y2='0' stroke='red' stroke-width='2' />
+<circle cx='100' cy='300' r='5' fill='green'/>
+<text x='100' y='300' stroke='blue' >(100, 300) </text>
+<circle cx='200' cy='200' r='5' fill='green'/>
+<text x='200' y='200' stroke='blue' >(200, 200) </text>
+<circle cx='300' cy='300' r='5' fill='green'/>
+<text x='300' y='300' stroke='blue' >(300, 300) </text>
+<path d='M100 300 L100 300 L200 200 L300 300 Z'  stroke='red' fill='none' stroke-width='3'/><circle cx='228.708' cy='253.083' r='5' fill='green'/>
+<text x='228.708' y='253.083' stroke='blue' >(228.708, 253.083) </text>
+<circle cx='240.895' cy='112.188' r='5' fill='green'/>
+<text x='240.895' y='112.188' stroke='blue' >(240.895, 112.188) </text>
+<circle cx='381.79' cy='124.375' r='5' fill='green'/>
+<text x='381.79' y='124.375' stroke='blue' >(381.79, 124.375) </text>
+<path d='M228.708 253.083 L228.708 253.083 L240.895 112.188 L381.79 124.375 Z'  stroke='green' fill='none' stroke-width='3'/></svg>

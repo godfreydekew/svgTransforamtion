@@ -95,7 +95,7 @@ std::vector<Point> translation(const std::vector<Point>& points, double tx = 0.0
     }
     return translatedPoints; 
 }
-std::vector<Point> scale(const std::vector<Point>& points, double tx = 0.0, double ty = 0.0) {
+std::vector<Point> scale(const std::vector<Point>& points, double tx = 1.0, double ty = 1.0) {
     std::vector<Point> scaledPoints;
     for (const Point& p : points) {
         Point scaledPoint(p.x * tx, p.y * ty); 
@@ -219,14 +219,15 @@ int main() {
     std::cin >> answer;
 
     if (answer == 'y') {
-        std::cout << "AFTER TRANSFORMATION SHAPE WILL BE GREEN\n";
-        std::cout << "Choose a transformation:\n";
-        std::cout << "1. --Translation\n";
-        std::cout << "2. --Scaling\n";
-        std::cout << "3. --Rotation\n";
-        std::cout << "4. --Rotation around a point\n";
-        std::cout << "5. --Reflection on a line\n";
-        std::cout << "6. --Shear\n";
+        std::cout <<"AFTER TRANSFORMATION SHAPE WILL BE GREEN\n";
+        std::cout <<"Choose a transformation:\n";
+        std::cout <<"1. --Translation\n";
+        std::cout <<"2. --Scaling\n";
+        std::cout <<"3. --Rotation\n";
+        std::cout <<"4. --Rotation around a point\n";
+        std::cout <<"5. --Reflection\n";
+        std::cout <<"6. --Reflection on a line\n";
+        std::cout <<"7. --Shear\n";
     
         std::cin >> choice;
 
@@ -242,7 +243,7 @@ int main() {
             }
             case 2: {
                 double sx, sy;
-                std::cout << "Enter scaling factors (sx sy) eg(3 3): ";
+                std::cout << "Enter scaling factors (sx sy) eg(3 3) or (3) or (1 3): ";
                 std::cin >> sx >> sy;
                 transformedPoints = scale(points, sx, sy);
                 break;
@@ -251,7 +252,8 @@ int main() {
                 double angle;
                 std::cout << "Enter rotation angle (degrees) eg(37): ";
                 std::cin >> angle;
-                transformedPoints = rotate(points, angle);
+
+                transformedPoints = rotate(points, toRadians(angle));
                 break;
             }
             case 4: {
@@ -264,17 +266,24 @@ int main() {
                 break;
             }
             case 5: {
+                double x, y;
+                std::cout << "enter reflection points (x y) eg(-1 1) or (1 -1): ";
+                std::cin >> x >> y;
+                transformedPoints = reflect(points, x, y);
+                break;
+            }
+             case 6: {
                 double x1, y1, x2, y2;
                 std::cout << "enter mirror line coordinates (x1 y1 x2 y2): ";
                 std::cin >> x1 >> y1 >> x2 >> y2;
                 transformedPoints = reflectOnLine(viewbox, points, x1, y1, x2, y2);
                 break;
             }
-            case 6: {
-                double shX, shY;
-                std::cout << "Enter shear factors or 0  (shX shY) eg(0 3) or (3 0): ";
-                std::cin >> shX >> shY;
-                transformedPoints = shear(points, shX, shY);
+            case 7: {
+                double x, y;
+                std::cout << "Enter shear factors or 0  (x y) eg(0 3) or (3 0): ";
+                std::cin >> x >> y;
+                transformedPoints = shear(points, x, y);
                 break;
             }
             default:
